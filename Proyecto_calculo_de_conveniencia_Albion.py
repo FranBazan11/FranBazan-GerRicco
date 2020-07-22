@@ -1,32 +1,37 @@
-#PROYECTO PARA CALCULAR QUE ME CONVIENE VENDER EN ALBION ONLINE
+#CONSTANTES Y OTRAS COSAS QUE USO DESPUES
 
-#Establezco algunas cositas
-totalfibras=['t2','t3','t4','t4.1','t4.2','t4.3','t5','t5.1','t5.2','t5.3','t6','t6.1','t6.2','t6.3','t7','t7.1','t7.2','t7.3','t8','t8.1','t8.2','t8.3']
+Fibras=['T2','T3','T4','T4.1','T4.2','T4.3','T5','T5.1','T5.2','T5.3','T6','T6.1','T6.2','T6.3']
+contador1=0
+totalBruto=0
+misFibras=[]
+cantidadesDeFibras=[]
+costoFibras=[]
 
-mis_fibras=[]
-cant_a=[]              #a son fibras ; b son telas ; c son Tunicas
-valor_a=[]
-valor_b=[]
-valor_c=[]
+#INFO
 
-#Pido algunos datos
-print('Recordando que:\n t2 = Algodon\n t3 = Lino\n t4 = Cañamo\n t5 = Duranta\n t6 = Algodon Rojo\n t7 = Lino Solar\n t8 = Cañamo Fantasma\n')
-print(totalfibras)
+print(Fibras)
+CantidadFibras=int(input('De la lista, Cuantos tipos de Fibra tenes ? '))
+if CantidadFibras <= len(Fibras):
+	while contador1 < CantidadFibras:
+		seleccion=str(input('Cual tenes? '))
+		if seleccion in Fibras:
+			misFibras.insert(contador1, seleccion)
+			cantidadesDeFibras.insert(contador1, int(input('Cuantas fibras ' + str(seleccion) + ' tenes? ')))
+			costos.insert(contador1, int(input('A cuanto vendes cada fibra ' + str(seleccion) + ' ? ')))
+			contador1=contador1 + 1
+		else:
+			print('Escribiste mal, volve a intentarlo')
+else:
+	print('no existen tantos tipos')
 
-cant_fibras= int(input('Cuantos tipos de fibra tenes para usar? '))
+#CALCULOS
 
-for i in range(cant_fibras):
-	mis_fibras.append(str(input('de la lista, que fibra tenes? ')))
-	cant_a.append(int(input('Cuantas fibras '+ str(mis_fibras[i]) + ' tenes?')))
-	valor_a.append(int(input('Cuanto vale en promedio la fibra? ')))
-	valor_b.append(int(input('Cuanto vale en promedio la tela')))
-	valor_c.append(int(input('Cuanto vale en promedio la tunica?')))
+for i in range(len(costoFibras)):
+	totalBruto = totalBruto + (cantidadesDeFibras[i]*costoFibras[i])  #Calculo de si vendo todo como fibras
+print(totalBruto)
 
-#Hago unas cuenticas
+#TENGO QUE BUSCAR LA FORMA DE HACER UN CALCULO PARA QUE ENCUENTRE LA FORMA MAS RENTABLE DE TODAS DE VENDER MIS PRODUCTOS
+#FIJARME PORCENTAJE DE DEVOLUCION DE MATERIALES AL FABRICAR TELAS Y ATUENTOS
+#NO SER TAN PAJERO Y HACER FUNCIONES, Y ME PARECE QUE HAY COSAS QUE MEJOR ALMACENAR EN CLASES
+#PENSAR SI TAMBIEN PUEDO LLEGAR A TENER EN CUENTA CON LOS PORCENTAJES DE APARICION DE MATERIALES QUE ME CONVIENE HACER, O LA VELOCIDAD DE RECOLECTAR
 
-
-
-#FALTA
-#QUE SE FIJE QUE COSAS ES POSIBLE FABRICAR CON LO QUE TENGO Y QUE PROMEDIE CUANTO GANARIA, Y QUE ME CONVIENE HACER
-#ACORDARSE DE AGREGAR LA POSIBILIDAD DE TRANSMUTACION
-#FIJARSE COMO CONVIENE ALMACENAR LAS CONSTANTES PARA LOS CALCULOS
